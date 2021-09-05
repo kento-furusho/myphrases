@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.navbar-brand{
+    font-size:23px;
+    text-shadow:-1px 1px 0 rgba(255, 255, 255, 3);
+}
+.navbar{
+    font-family:'TsukuARdGothic-Regular';
+    background-color:#F6F6F6;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-shadow:(rgba(255, 255, 255, .3)0 1px 0);
+}
