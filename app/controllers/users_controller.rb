@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @phrases = @user.phrases.order(id: :desc).page(params[:page])
+    counts(@user)
   end
 
   def new

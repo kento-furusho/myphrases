@@ -1,0 +1,29 @@
+<!--トップページのリリック一覧表示画面-->
+
+<div class="d-flex flex-row">
+    <% phrases.each do |phrase|%>
+      <div class="mb-3">
+        <% if current_user.avatar? %>
+          <%= image_tag current_user.avatar.url , :size => '50x50' %>
+        <% end %>
+        <div>
+          <%= link_to phrase.user.name, user_path(phrase.user)%>
+        </div>
+      </div>
+      <div>
+        <ul style="list-style: none;">
+          <li><span>歌手</span><p><%= phrase.singer %></p></li>
+          <li><span>タイトル</span><p><%= phrase.title %></p></li>
+          <li><span>イチオシリリック</span><p><%= phrase.lyric %></p></li>
+          <li><span>一言コメント</span><p><%= phrase.comment %></p></li>
+          <span class="delete-button">
+             <% if current_user == phrase.user %>
+               <%= link_to "削除", phrase, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+             <% end %>
+          </span>
+        </ul>
+      </div>
+
+    <% end %>
+  <%= paginate phrases %>
+</div>

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_10_053229) do
+ActiveRecord::Schema.define(version: 2021_09_19_055215) do
+
+  create_table "phrases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "singer"
+    t.string "title"
+    t.string "lyric"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "comment"
+    t.index ["user_id"], name: "index_phrases_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -21,4 +32,5 @@ ActiveRecord::Schema.define(version: 2021_09_10_053229) do
     t.string "avatar"
   end
 
+  add_foreign_key "phrases", "users"
 end

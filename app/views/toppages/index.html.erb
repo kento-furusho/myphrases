@@ -1,5 +1,23 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ：<%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @phrase, local: true) do |f| %>
+        <div class="form-group">
+            <span>歌手</span><%= f.text_area :singer, class: 'form-control mb-3', rows: 1 %>
+            <span>タイトル</span><%= f.text_area :title, class: 'form-control mb-3', rows: 1 %>
+            <span>イチオシリリック</span><%= f.text_area :lyric, class: 'form-control mb-3', rows: 2 %>
+            <span>コメント</span><%= f.text_area :comment, class: 'form-control mb-3', rows: 2 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>        
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'phrases/phrases', phrases: @phrases %>
+    </div>
+  </div>
+  
+  
+  
 <% else %>
   <div class="center jumbotron">
     <div class="explanation">
