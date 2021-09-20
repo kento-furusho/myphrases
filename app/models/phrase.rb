@@ -4,6 +4,6 @@ class Phrase < ApplicationRecord
   validates :singer, presence: true, length: { maximum: 30 }
   validates :title, presence: true, length: { maximum: 30 }
   validates :lyric, presence: true, length: { maximum: 50 }
-  validates :comment, presence: true, length: { maximum: 50 }
+  validates :comment, allow_nil: true, length: { maximum: 50 }
   
 end
