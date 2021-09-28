@@ -8,7 +8,7 @@ class PhrasesController < ApplicationController
       flash[:success] = '新たなイチオシリリックを投稿しました。'
       redirect_to root_url
     else
-      @phrase = current_user.phrases.order(id: :desc).page(params[:page])
+      @phrase = current_user.feed_phrases.order(id: :desc).page(params[:page])
       flash.now[:danger] = '投稿に失敗しました。'
       render 'toppages/index'
     end
