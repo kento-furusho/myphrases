@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followings, through: :relationships, source: :follow
   has_many :followers, through: :reverses_of_relationship, source: :user
+  has_many :favorites, dependent: :destroy
+  has_many :likes, through: :favorites, source: :phrase
   
   def follow(other_user)
     unless self == other_user
@@ -31,4 +33,18 @@ class User < ApplicationRecord
   def feed_phrases
     Phrase.where(user_id: self.following_ids + [self.id])
   end
+  
+  def like(phrase)
+    self.favorites.find_or_create_by(phrase_id: phrase.id)
+  end
+  
+  def unlike(phrase)
+    favorite = self.favorites.find_by(phrase_id: phrase.id)
+    favorite.destroy if favorite
+  end
+  
+  def favoriting?(phrase)
+    self.likes.include?(phrase)
+  end
+    
 end
