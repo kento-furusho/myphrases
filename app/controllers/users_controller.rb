@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    
     if @user.update_attributes(user_params)
       flash[:success] = 'ユーザ情報が変更されました。'
       redirect_to @user
@@ -42,6 +43,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user_id == current_user.id
+       @user.destroy(user_params)
+       redirect_to "/"
+    end
   end
   
   def followings

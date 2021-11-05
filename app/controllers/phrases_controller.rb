@@ -5,7 +5,7 @@ class PhrasesController < ApplicationController
   def create
     @phrase = current_user.phrases.build(phrases_params)
     if @phrase.save
-      flash[:success] = '新たなイチオシリリックを投稿しました。'
+      flash[:success] = '正しく投稿されました。'
       redirect_to root_url
     else
       @phrase = current_user.feed_phrases.order(id: :desc).page(params[:page])
