@@ -1,28 +1,66 @@
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-sm-4">
-      <%= form_with(model: @phrase, local: true) do |f| %>
-        <div class="form-group">
-            <span>歌手</span><%= f.text_area :singer, class: 'form-control mb-3', rows: 1 %>
-            <span>タイトル</span><%= f.text_area :title, class: 'form-control mb-3', rows: 1 %>
-            <span>イチオシリリック</span><%= f.text_area :lyric, class: 'form-control mb-3', rows: 2 %>
-            <span>一言コメント</span><%= f.text_area :comment, class: 'form-control mb-3', rows: 2 %>
+
+  <% if logged_in? %>
+    <div class="row">
+      <aside class="col-sm-4">
+        <%= form_with(model: @phrase, local: true) do |f| %>
+          <div class="form-group">
+              <span>歌手</span><%= f.text_area :singer, class: 'form-control mb-3', rows: 1 %>
+              <span>タイトル</span><%= f.text_area :title, class: 'form-control mb-3', rows: 1 %>
+              <span>この歌詞が好き！</span><%= f.text_area :lyric, class: 'form-control mb-3', rows: 2 %>
+              <span>一言コメント</span><%= f.text_area :comment, class: 'form-control mb-3', rows: 2 %>
+          </div>
+          <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+        <% end %>        
+      </aside>
+      <div class="col-sm-8">
+        <%= render 'phrases/phrases', phrases: @phrases %>
+      </div>
+    </div>
+    
+    
+    
+  <% else %>
+    <div class="p-top row">
+      <div class="p-top_text col-md-6 mb-2">
+        <h3 class="p-top_title">うた広場とは...</h3>
+        <p class="p-top_txt">
+          誰しもひとつやふたつ、もしくはもっと、大好きな歌詞があると思います。
+        </p>
+        <p class="p-top_txt">
+          そんな大好きな歌詞について語り合う場所がこのうた広場です。
+        </p>
+        <p class="p-top_txt">
+          この歌詞に救われた、泣かされた、ほっこりする、なんとなく好き、好きな理由はなんでもいいです。
+        </p>
+        <p class="p-top_txt">
+          とにかく、皆さんの大好きな歌詞で溢れてくれたら嬉しいです。
+        </p>
+        <div class="btn_2">
+          <div class="p-top_btn btn_signup">
+            <a href="/signup">登録</a>
+          </div>
+          <div class="p-top_btn btn_login">
+            <a href="/login">ログイン</a>
+          </div>
         </div>
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
-      <% end %>        
-    </aside>
-    <div class="col-sm-8">
-      <%= render 'phrases/phrases', phrases: @phrases %>
+      </div>
+      <div class="col-md-6 slideshow">
+          <div class="pictures"><img src="/assets/S__60006502.jpg" class="picture"></div>
+          <div class="pictures"><img src="/assets/S__60006504.jpg" class="picture"></div>
+          <div class="pictures"><img src="/assets/S__60006488.jpg" class="picture"></div>
+      </div>
     </div>
-  </div>
-  
-  
-  
-<% else %>
-  <div class="center jumbotron">
-    <div class="explanation">
-      <h1>ボクらのイチオシリリックとは…<br><br/>誰しもがひとつやふたつ<br>大好きな歌詞、救われた歌詞、心に刺さった歌詞など<br>さまざまな思い入れのある歌詞を持っていると思います
-  <br><br>それをみんなで共有して、新たなイチオシリリックを見つけようというサイトです</h1>
-    </div>
-  </div>
-<% end %>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <% end %>

@@ -12,17 +12,17 @@
       </div>
       <div>
         <ul style="list-style: none;">
-          <li><span>歌手</span><p><%= phrase.singer %></p></li>
-          <li><span>タイトル</span><p><%= phrase.title %></p></li>
-          <li><span>イチオシリリック</span><p><%= phrase.lyric %></p></li>
-          <li><span>一言コメント</span><p><%= phrase.comment %></p></li>
+          <li><span>《歌手》</span><p class="mgl"><%= phrase.singer %></p></li>
+          <li><span>《タイトル》</span><p class="mgl"><%= phrase.title %></p></li>
+          <li><span>《この歌詞が好き！》</span><p class="mgl"><%= phrase.lyric %></p></li>
+          <li><span>《一言コメント》</span><p class="mgl"><%= phrase.comment %></p></li>
           <div class="row">
-            <span class="delete-button col-2">
+            <span class="delete-button col-３">
                <% if current_user == phrase.user %>
                  <%= link_to "削除", phrase, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
                <% end %>
             </span>
-            <span class="like-button col-2">
+            <span class="like-button col-3">
               <%= render 'favorites/like_button', phrase: phrase %>
             </span>
           </div>

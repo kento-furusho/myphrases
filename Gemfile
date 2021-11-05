@@ -56,3 +56,7 @@ gem 'kaminari'
 gem 'carrierwave', '~> 2.0'
 
 gem 'mini_magick'
+
+gem 'jquery-rails'
+
+gem 'compass-rails', github: 'Compass/compass-rails'

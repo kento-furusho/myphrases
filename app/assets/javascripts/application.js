@@ -11,5 +11,20 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+//= require jquery
+//= require rails-ujs
+
+  $(function() {
+      $('.slideshow').slick({
+          fade: true,
+          dots: false,
+          autoplay: true,
+          autoplaySpeed: 5500,
+          slideToShow: 1,
+          arrows:false,
+          infinite: true,
+          pauseOnFocus: false,
+          pauseOnHover: false
+      });
+  });

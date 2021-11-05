@@ -13,13 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  font-family:'TsukuARdGothic-Regular';
+}
+
+
+
+
 .navbar-brand{
     font-size:23px;
     text-shadow:-1px 1px 0 rgba(255, 255, 255, 3);
 }
 .navbar{
-    font-family:'TsukuARdGothic-Regular';
-    background-color:#F6F6F6;
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
-    box-shadow:(rgba(255, 255, 255, .3)0 1px 0);
+    background:transparent;
+    // border-bottom: 1px solid rgba(0, 0, 0, .1);
+    // box-shadow:(rgba(255, 255, 255, .3)0 1px 0);
+}
+
+.picture{
+    width:100%;
+    
+}
+ 
+
+
+.slideshow{
+    margin:0px;
+    padding:0px;
+    
+}
+
+.slideshow img {
+  transform-origin: center;
+  transform: scale(1.05);
+  transition: 8s ease-out;
+}
+.slideshow .slick-active img {
+  transform: scale(1.0);
 }
