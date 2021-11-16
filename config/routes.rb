@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get :followers
       get :likes
     end
+    collection do
+      get :search
+    end
   end
   
   get 'login', to: 'sessions#new'
