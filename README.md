@@ -1,24 +1,8 @@
-# README
+「歌ひろば」という、好きな歌の歌詞を共有するSNS型アプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Railsのみを使って作成しました。
 
-Things you may want to cover:
+このアプリにVue.jsとDockerを導入して開発中なのがこちらです。
 
-* Ruby version
+https://github.com/kento-furusho/myphrases_root
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
